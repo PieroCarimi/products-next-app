@@ -9,19 +9,21 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Home() {
   const [products, setProducts] = useState<Product[]>([]);
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const res = await fetch('http://localhost:3000/api/products');
-        const data: Product[] = await res.json();
-        setProducts(data);
-      }catch (error) {
-        console.error('Error fetching products:', error);
-      }
-    };
+  const fetchProducts = async () => {
+    try {
+      const res = await fetch('http://localhost:3000/api/products');
+      const data: Product[] = await res.json();
+      setProducts(data);
+    }catch (error) {
+      console.error('Error fetching products:', error);
+    }
+  };
 
+  useEffect(() => {
     fetchProducts();
   }, [])
+
+  if (!products) { return <div>Loading...</div> };
 
   return (
     <>
