@@ -7,7 +7,7 @@ import { Product } from "@/declarations";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  const [products, setProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<Product[] | null>(null);
 
   const fetchProducts = async () => {
     try {
@@ -23,7 +23,7 @@ export default function Home() {
     fetchProducts();
   }, [])
 
-  if (!products) { return <div>Loading...</div> };
+  if (!products) { return <div>Loading product data...</div> };
 
   return (
     <>
