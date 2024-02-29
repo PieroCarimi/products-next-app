@@ -11,7 +11,7 @@ export default function Home() {
 
   const fetchProducts = async () => {
     try {
-      const res = await fetch('api/products');
+      const res = await fetch('/api/products');
       const data: Product[] = await res.json();
       setProducts(data);
     }catch (error) {
