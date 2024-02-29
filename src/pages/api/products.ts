@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+import fetch from 'isomorphic-fetch';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse){
     const response = await fetch('products-node-production.up.railway.app');
