@@ -2,6 +2,7 @@
   "name": "products-next-app",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://products-node-production.up.railway.app",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
